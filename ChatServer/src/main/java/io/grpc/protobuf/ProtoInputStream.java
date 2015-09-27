@@ -29,7 +29,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package io.grpc.protobuf;
+package main.java.io.grpc.protobuf;
 
 import com.google.common.io.ByteStreams;
 import com.google.protobuf.CodedOutputStream;

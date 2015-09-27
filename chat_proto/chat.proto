@@ -3,7 +3,7 @@ syntax = "proto3";
 package chatservice;
 
 option java_multiple_files = true;
-option java_package = "io.grpc.chatservice";
+option java_package = "main.java.io.grpc.chatservice";
 option java_outer_classname = "ChatServiceProto";
 
 message Message {
@@ -29,8 +29,8 @@ message Channel {
 
 service ChatService {
 	rpc nick (User) returns (User) {}
-	rpc join (Channel) returns (Channel) {}
-	rpc leave (Channel) returns (Channel) {}
+	rpc join (ChannelUser) returns (Channel) {}
+	rpc leave (ChannelUser) returns (Channel) {}
 	rpc exit (User) returns (User) {}
 	rpc getMessages (User) returns (stream Message) {}
 	rpc send (Message) returns (Message) {}

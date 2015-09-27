@@ -1,35 +1,54 @@
-package ProtoChatServer.ChatServer;
+package main.java.ProtoChatServer.ChatServer;
 
-import io.grpc.chatservice.Channel;
-import io.grpc.chatservice.Message;
-import io.grpc.chatservice.User;
+import main.java.io.grpc.chatservice.Channel;
+import main.java.io.grpc.chatservice.ChannelUser;
+import main.java.io.grpc.chatservice.Message;
+import main.java.io.grpc.chatservice.User;
 import io.grpc.stub.StreamObserver;
+import main.java.ProtoChatServer.ChatServer.App;
 
-public class ChatHandler implements  io.grpc.chatservice.ChatServiceGrpc.ChatService{
+public class ChatHandler implements  main.java.io.grpc.chatservice.ChatServiceGrpc.ChatService{
 
 	public void nick(User request, StreamObserver<User> responseObserver) {
 		// TODO Auto-generated method stub
 		System.out.println("Entering nick...");
-		System.out.println(request.getNick());
+//		System.out.println(request.getNick());
 		responseObserver.onValue(_nick(request));
 		responseObserver.onCompleted();
 	}
 	
 	private User _nick(User u) {
-		System.out.println("in _nick " + u.getNick());
-		App.users.addUser(u);
-		System.out.println(App.users.getListUsers().get(0).getNick());
+//		System.out.println("in _nick " + u.getNick());
+		if (u.getNick().equals("")) {
+			int temp = App.users.getListUsers().size();
+			User u2 = User.newBuilder().setNick("user" + String.valueOf(temp)).setClientKey(u.getClientKey()).build();
+			App.users.addUser(u2);
+		} else {
+			App.users.addUser(u);
+		}
+//		System.out.println(App.users.getListUsers().get(0).getNick());
 		return u;
 	}
-
-	public void join(Channel request, StreamObserver<Channel> responseObserver) {
+	
+	public void join(ChannelUser request,
+			StreamObserver<Channel> responseObserver) {
 		// TODO Auto-generated method stub
 		System.out.println("Entering join...");
+		responseObserver.onValue(_join(request));
+		responseObserver.onCompleted();
 	}
-
-	public void leave(Channel request, StreamObserver<Channel> responseObserver) {
-		// TODO Auto-generated method stub
-		System.out.println("Entering leave...");
+	
+	private Channel _join(ChannelUser cu) {
+		Channel c;
+		if (cu.getChannelName().equals("")) {
+			int temp = App.channels.getListChannels().size();
+			c = Channel.newBuilder().setChannelName("channel" + String.valueOf(temp)).buildPartial();
+			
+		} else {
+			c = Channel.newBuilder().setChannelName(cu.getChannelName()).buildPartial();
+		}
+		App.channels.addChannel(c);
+		return c;
 	}
 
 	public void exit(User request, StreamObserver<User> responseObserver) {
@@ -46,6 +65,12 @@ public class ChatHandler implements  io.grpc.chatservice.ChatServiceGrpc.ChatSer
 	public void send(Message request, StreamObserver<Message> responseObserver) {
 		// TODO Auto-generated method stub
 		System.out.println("Entering send...");
+	}
+
+	public void leave(ChannelUser request,
+			StreamObserver<Channel> responseObserver) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

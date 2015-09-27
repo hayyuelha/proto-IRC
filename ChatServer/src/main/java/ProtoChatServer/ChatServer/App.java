@@ -1,6 +1,6 @@
-package ProtoChatServer.ChatServer;
+package main.java.ProtoChatServer.ChatServer;
 
-import io.grpc.chatservice.*;
+import main.java.io.grpc.chatservice.*;
 import io.grpc.netty.NettyServerBuilder;
 import io.grpc.Server;
 import io.grpc.ServerImpl;
@@ -32,6 +32,7 @@ public class App
 				.addService(ChatServiceGrpc.bindService(new ChatHandler()))
 				.build().start();
 		logger.info("Server started, listening on " + port);
+		users = new Users();
 		Runtime.getRuntime().addShutdownHook(new Thread() {
 		      @Override
 		      public void run() {
@@ -91,19 +92,19 @@ public class App
 		}
 		
 		//Get channel instance by channelName
-		public Channel getChannel(String channelName) {
-			Channel chInstance = new Channel();
-			boolean ret = false;
-			int i = 0;
-			while (!ret && i < channels.size()) {
-				if (channels.get(i).getChannelName().equals(channelName)) {
-					ret = true;
-					chInstance = channels.get(i);
-				}
-				i++;
-			}
-			return chInstance;
-		}
+//		public Channel getChannel(String channelName) {
+//			Channel chInstance = new Channel();
+//			boolean ret = false;
+//			int i = 0;
+//			while (!ret && i < channels.size()) {
+//				if (channels.get(i).getChannelName().equals(channelName)) {
+//					ret = true;
+//					chInstance = channels.get(i);
+//				}
+//				i++;
+//			}
+//			return chInstance;
+//		}
 		
 //		public void removeUser(User user) {
 //			for (Channel c : channels) {
@@ -138,19 +139,19 @@ public class App
 		}
 		
 		//Get user instance by clientKey
-		public User getUser(String clientKey) {
-			User usr = new User();
-			boolean ret = false;
-			int i = 0;
-			while (!ret && i < users.size()) {
-				if (users.get(i).getClientKey().equals(clientKey)) {
-					ret = true;
-					usr = users.get(i);
-				}
-				i++;
-			}
-			return usr;
-		}
+//		public User getUser(String clientKey) {
+//			User usr = new User();
+//			boolean ret = false;
+//			int i = 0;
+//			while (!ret && i < users.size()) {
+//				if (users.get(i).getClientKey().equals(clientKey)) {
+//					ret = true;
+//					usr = users.get(i);
+//				}
+//				i++;
+//			}
+//			return usr;
+//		}
 		
 		public List<User> getListUsers() {
 			return this.users;

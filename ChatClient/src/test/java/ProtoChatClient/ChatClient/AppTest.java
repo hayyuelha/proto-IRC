@@ -1,4 +1,4 @@
-package ProtoChatClient.ChatClient;
+package test.java.ProtoChatClient.ChatClient;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
