@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename package &apos;grpc.chatservice&apos; to &apos;io.grpc.chatservice&apos;&#x0A;- Original project: &apos;ChatServer&apos;&#x0A;- Original element: &apos;ChatServer/src/main/java/grpc.chatservice&apos;&#x0A;- Renamed element: &apos;ChatServer/src/main/java/io.grpc.chatservice&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;grpc.chatservice&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src\/main\/java&lt;grpc.chatservice" name="io.grpc.chatservice" qualified="false" references="true" stamp="1443307871383" textual="false" version="1.0"/>
-</session>
