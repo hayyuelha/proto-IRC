@@ -33,6 +33,7 @@ public class App
 				.build().start();
 		logger.info("Server started, listening on " + port);
 		users = new Users();
+		channels = new Channels();
 		Runtime.getRuntime().addShutdownHook(new Thread() {
 		      @Override
 		      public void run() {
@@ -92,31 +93,37 @@ public class App
 		}
 		
 		//Get channel instance by channelName
-//		public Channel getChannel(String channelName) {
-//			Channel chInstance = new Channel();
-//			boolean ret = false;
-//			int i = 0;
-//			while (!ret && i < channels.size()) {
-//				if (channels.get(i).getChannelName().equals(channelName)) {
-//					ret = true;
-//					chInstance = channels.get(i);
-//				}
-//				i++;
-//			}
-//			return chInstance;
-//		}
+		public Channel getChannel(String channelName) {
+			Channel chInstance = Channel.newBuilder().build();
+			boolean ret = false;
+			int i = 0;
+			while (!ret && i < channels.size()) {
+				if (channels.get(i).getChannelName().equals(channelName)) {
+					ret = true;
+					chInstance = channels.get(i);
+				}
+				i++;
+			}
+			return chInstance;
+		}
 		
-//		public void removeUser(User user) {
-//			for (Channel c : channels) {
-//				c.removeMember(user);
-//			}
-//		}
-//		
-//		public void addMessage(Message m) {
-//			for (Channel c : channels) {
-//				c.addMessage(m);
-//			}
-//		}
+		public void removeUser(User user) {
+			for (Channel c : channels) {
+				c.getUsersList().remove(user);
+			}
+		}
+		
+		public void addMessage(Message m) {
+			for (Channel c : channels) {
+				List<User> tmpList = c.getUsersList();
+				for (User u : tmpList) {
+					//TODO add message for user u
+					Message msg = Message.newBuilder().setChannel(m.getChannel()).setMessage(m.getMessage())
+							.setClientKey(m.getClientKey()).build();
+					u.getMessagesList().add(msg);
+				}
+			}
+		}
 		
 		public List<Channel> getListChannels() {
 			return this.channels;
@@ -139,19 +146,19 @@ public class App
 		}
 		
 		//Get user instance by clientKey
-//		public User getUser(String clientKey) {
-//			User usr = new User();
-//			boolean ret = false;
-//			int i = 0;
-//			while (!ret && i < users.size()) {
-//				if (users.get(i).getClientKey().equals(clientKey)) {
-//					ret = true;
-//					usr = users.get(i);
-//				}
-//				i++;
-//			}
-//			return usr;
-//		}
+		public User getUser(String clientKey) {
+			User usr = User.newBuilder().build();
+			boolean ret = false;
+			int i = 0;
+			while (!ret && i < users.size()) {
+				if (users.get(i).getClientKey().equals(clientKey)) {
+					ret = true;
+					usr = users.get(i);
+				}
+				i++;
+			}
+			return usr;
+		}
 		
 		public List<User> getListUsers() {
 			return this.users;

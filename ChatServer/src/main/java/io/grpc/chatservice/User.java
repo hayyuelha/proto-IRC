@@ -17,6 +17,8 @@ public  final class User extends
   private User() {
     clientKey_ = "";
     nick_ = "";
+    messages_ = java.util.Collections.emptyList();
+    channels_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -55,6 +57,22 @@ public  final class User extends
             nick_ = s;
             break;
           }
+          case 26: {
+            if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+              messages_ = new java.util.ArrayList<main.java.io.grpc.chatservice.Message>();
+              mutable_bitField0_ |= 0x00000004;
+            }
+            messages_.add(input.readMessage(main.java.io.grpc.chatservice.Message.parser(), extensionRegistry));
+            break;
+          }
+          case 34: {
+            if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+              channels_ = new java.util.ArrayList<main.java.io.grpc.chatservice.Channel>();
+              mutable_bitField0_ |= 0x00000008;
+            }
+            channels_.add(input.readMessage(main.java.io.grpc.chatservice.Channel.parser(), extensionRegistry));
+            break;
+          }
         }
       }
     } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -64,6 +82,12 @@ public  final class User extends
           new com.google.protobuf.InvalidProtocolBufferException(
               e.getMessage()).setUnfinishedMessage(this));
     } finally {
+      if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+        messages_ = java.util.Collections.unmodifiableList(messages_);
+      }
+      if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+        channels_ = java.util.Collections.unmodifiableList(channels_);
+      }
       makeExtensionsImmutable();
     }
   }
@@ -79,6 +103,7 @@ public  final class User extends
             main.java.io.grpc.chatservice.User.class, main.java.io.grpc.chatservice.User.Builder.class);
   }
 
+  private int bitField0_;
   public static final int CLIENTKEY_FIELD_NUMBER = 1;
   private volatile java.lang.Object clientKey_;
   /**
@@ -147,6 +172,76 @@ public  final class User extends
     }
   }
 
+  public static final int MESSAGES_FIELD_NUMBER = 3;
+  private java.util.List<main.java.io.grpc.chatservice.Message> messages_;
+  /**
+   * <code>repeated .chatservice.Message messages = 3;</code>
+   */
+  public java.util.List<main.java.io.grpc.chatservice.Message> getMessagesList() {
+    return messages_;
+  }
+  /**
+   * <code>repeated .chatservice.Message messages = 3;</code>
+   */
+  public java.util.List<? extends main.java.io.grpc.chatservice.MessageOrBuilder> 
+      getMessagesOrBuilderList() {
+    return messages_;
+  }
+  /**
+   * <code>repeated .chatservice.Message messages = 3;</code>
+   */
+  public int getMessagesCount() {
+    return messages_.size();
+  }
+  /**
+   * <code>repeated .chatservice.Message messages = 3;</code>
+   */
+  public main.java.io.grpc.chatservice.Message getMessages(int index) {
+    return messages_.get(index);
+  }
+  /**
+   * <code>repeated .chatservice.Message messages = 3;</code>
+   */
+  public main.java.io.grpc.chatservice.MessageOrBuilder getMessagesOrBuilder(
+      int index) {
+    return messages_.get(index);
+  }
+
+  public static final int CHANNELS_FIELD_NUMBER = 4;
+  private java.util.List<main.java.io.grpc.chatservice.Channel> channels_;
+  /**
+   * <code>repeated .chatservice.Channel channels = 4;</code>
+   */
+  public java.util.List<main.java.io.grpc.chatservice.Channel> getChannelsList() {
+    return channels_;
+  }
+  /**
+   * <code>repeated .chatservice.Channel channels = 4;</code>
+   */
+  public java.util.List<? extends main.java.io.grpc.chatservice.ChannelOrBuilder> 
+      getChannelsOrBuilderList() {
+    return channels_;
+  }
+  /**
+   * <code>repeated .chatservice.Channel channels = 4;</code>
+   */
+  public int getChannelsCount() {
+    return channels_.size();
+  }
+  /**
+   * <code>repeated .chatservice.Channel channels = 4;</code>
+   */
+  public main.java.io.grpc.chatservice.Channel getChannels(int index) {
+    return channels_.get(index);
+  }
+  /**
+   * <code>repeated .chatservice.Channel channels = 4;</code>
+   */
+  public main.java.io.grpc.chatservice.ChannelOrBuilder getChannelsOrBuilder(
+      int index) {
+    return channels_.get(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -165,6 +260,12 @@ public  final class User extends
     if (!getNickBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessage.writeString(output, 2, nick_);
     }
+    for (int i = 0; i < messages_.size(); i++) {
+      output.writeMessage(3, messages_.get(i));
+    }
+    for (int i = 0; i < channels_.size(); i++) {
+      output.writeMessage(4, channels_.get(i));
+    }
   }
 
   public int getSerializedSize() {
@@ -177,6 +278,14 @@ public  final class User extends
     }
     if (!getNickBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessage.computeStringSize(2, nick_);
+    }
+    for (int i = 0; i < messages_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, messages_.get(i));
+    }
+    for (int i = 0; i < channels_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(4, channels_.get(i));
     }
     memoizedSize = size;
     return size;
@@ -285,6 +394,8 @@ public  final class User extends
     }
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        getMessagesFieldBuilder();
+        getChannelsFieldBuilder();
       }
     }
     public Builder clear() {
@@ -293,6 +404,18 @@ public  final class User extends
 
       nick_ = "";
 
+      if (messagesBuilder_ == null) {
+        messages_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      } else {
+        messagesBuilder_.clear();
+      }
+      if (channelsBuilder_ == null) {
+        channels_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);
+      } else {
+        channelsBuilder_.clear();
+      }
       return this;
     }
 
@@ -315,8 +438,29 @@ public  final class User extends
 
     public main.java.io.grpc.chatservice.User buildPartial() {
       main.java.io.grpc.chatservice.User result = new main.java.io.grpc.chatservice.User(this);
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
       result.clientKey_ = clientKey_;
       result.nick_ = nick_;
+      if (messagesBuilder_ == null) {
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          messages_ = java.util.Collections.unmodifiableList(messages_);
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.messages_ = messages_;
+      } else {
+        result.messages_ = messagesBuilder_.build();
+      }
+      if (channelsBuilder_ == null) {
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          channels_ = java.util.Collections.unmodifiableList(channels_);
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.channels_ = channels_;
+      } else {
+        result.channels_ = channelsBuilder_.build();
+      }
+      result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
     }
@@ -339,6 +483,58 @@ public  final class User extends
       if (!other.getNick().isEmpty()) {
         nick_ = other.nick_;
         onChanged();
+      }
+      if (messagesBuilder_ == null) {
+        if (!other.messages_.isEmpty()) {
+          if (messages_.isEmpty()) {
+            messages_ = other.messages_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureMessagesIsMutable();
+            messages_.addAll(other.messages_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.messages_.isEmpty()) {
+          if (messagesBuilder_.isEmpty()) {
+            messagesBuilder_.dispose();
+            messagesBuilder_ = null;
+            messages_ = other.messages_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+            messagesBuilder_ = 
+              com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                 getMessagesFieldBuilder() : null;
+          } else {
+            messagesBuilder_.addAllMessages(other.messages_);
+          }
+        }
+      }
+      if (channelsBuilder_ == null) {
+        if (!other.channels_.isEmpty()) {
+          if (channels_.isEmpty()) {
+            channels_ = other.channels_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureChannelsIsMutable();
+            channels_.addAll(other.channels_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.channels_.isEmpty()) {
+          if (channelsBuilder_.isEmpty()) {
+            channelsBuilder_.dispose();
+            channelsBuilder_ = null;
+            channels_ = other.channels_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+            channelsBuilder_ = 
+              com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                 getChannelsFieldBuilder() : null;
+          } else {
+            channelsBuilder_.addAllMessages(other.channels_);
+          }
+        }
       }
       onChanged();
       return this;
@@ -365,6 +561,7 @@ public  final class User extends
       }
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object clientKey_ = "";
     /**
@@ -502,6 +699,486 @@ public  final class User extends
       nick_ = value;
       onChanged();
       return this;
+    }
+
+    private java.util.List<main.java.io.grpc.chatservice.Message> messages_ =
+      java.util.Collections.emptyList();
+    private void ensureMessagesIsMutable() {
+      if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+        messages_ = new java.util.ArrayList<main.java.io.grpc.chatservice.Message>(messages_);
+        bitField0_ |= 0x00000004;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilder<
+        main.java.io.grpc.chatservice.Message, main.java.io.grpc.chatservice.Message.Builder, main.java.io.grpc.chatservice.MessageOrBuilder> messagesBuilder_;
+
+    /**
+     * <code>repeated .chatservice.Message messages = 3;</code>
+     */
+    public java.util.List<main.java.io.grpc.chatservice.Message> getMessagesList() {
+      if (messagesBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(messages_);
+      } else {
+        return messagesBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .chatservice.Message messages = 3;</code>
+     */
+    public int getMessagesCount() {
+      if (messagesBuilder_ == null) {
+        return messages_.size();
+      } else {
+        return messagesBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .chatservice.Message messages = 3;</code>
+     */
+    public main.java.io.grpc.chatservice.Message getMessages(int index) {
+      if (messagesBuilder_ == null) {
+        return messages_.get(index);
+      } else {
+        return messagesBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .chatservice.Message messages = 3;</code>
+     */
+    public Builder setMessages(
+        int index, main.java.io.grpc.chatservice.Message value) {
+      if (messagesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureMessagesIsMutable();
+        messages_.set(index, value);
+        onChanged();
+      } else {
+        messagesBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .chatservice.Message messages = 3;</code>
+     */
+    public Builder setMessages(
+        int index, main.java.io.grpc.chatservice.Message.Builder builderForValue) {
+      if (messagesBuilder_ == null) {
+        ensureMessagesIsMutable();
+        messages_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        messagesBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .chatservice.Message messages = 3;</code>
+     */
+    public Builder addMessages(main.java.io.grpc.chatservice.Message value) {
+      if (messagesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureMessagesIsMutable();
+        messages_.add(value);
+        onChanged();
+      } else {
+        messagesBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .chatservice.Message messages = 3;</code>
+     */
+    public Builder addMessages(
+        int index, main.java.io.grpc.chatservice.Message value) {
+      if (messagesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureMessagesIsMutable();
+        messages_.add(index, value);
+        onChanged();
+      } else {
+        messagesBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .chatservice.Message messages = 3;</code>
+     */
+    public Builder addMessages(
+        main.java.io.grpc.chatservice.Message.Builder builderForValue) {
+      if (messagesBuilder_ == null) {
+        ensureMessagesIsMutable();
+        messages_.add(builderForValue.build());
+        onChanged();
+      } else {
+        messagesBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .chatservice.Message messages = 3;</code>
+     */
+    public Builder addMessages(
+        int index, main.java.io.grpc.chatservice.Message.Builder builderForValue) {
+      if (messagesBuilder_ == null) {
+        ensureMessagesIsMutable();
+        messages_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        messagesBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .chatservice.Message messages = 3;</code>
+     */
+    public Builder addAllMessages(
+        java.lang.Iterable<? extends main.java.io.grpc.chatservice.Message> values) {
+      if (messagesBuilder_ == null) {
+        ensureMessagesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, messages_);
+        onChanged();
+      } else {
+        messagesBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .chatservice.Message messages = 3;</code>
+     */
+    public Builder clearMessages() {
+      if (messagesBuilder_ == null) {
+        messages_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+      } else {
+        messagesBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .chatservice.Message messages = 3;</code>
+     */
+    public Builder removeMessages(int index) {
+      if (messagesBuilder_ == null) {
+        ensureMessagesIsMutable();
+        messages_.remove(index);
+        onChanged();
+      } else {
+        messagesBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .chatservice.Message messages = 3;</code>
+     */
+    public main.java.io.grpc.chatservice.Message.Builder getMessagesBuilder(
+        int index) {
+      return getMessagesFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .chatservice.Message messages = 3;</code>
+     */
+    public main.java.io.grpc.chatservice.MessageOrBuilder getMessagesOrBuilder(
+        int index) {
+      if (messagesBuilder_ == null) {
+        return messages_.get(index);  } else {
+        return messagesBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .chatservice.Message messages = 3;</code>
+     */
+    public java.util.List<? extends main.java.io.grpc.chatservice.MessageOrBuilder> 
+         getMessagesOrBuilderList() {
+      if (messagesBuilder_ != null) {
+        return messagesBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(messages_);
+      }
+    }
+    /**
+     * <code>repeated .chatservice.Message messages = 3;</code>
+     */
+    public main.java.io.grpc.chatservice.Message.Builder addMessagesBuilder() {
+      return getMessagesFieldBuilder().addBuilder(
+          main.java.io.grpc.chatservice.Message.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .chatservice.Message messages = 3;</code>
+     */
+    public main.java.io.grpc.chatservice.Message.Builder addMessagesBuilder(
+        int index) {
+      return getMessagesFieldBuilder().addBuilder(
+          index, main.java.io.grpc.chatservice.Message.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .chatservice.Message messages = 3;</code>
+     */
+    public java.util.List<main.java.io.grpc.chatservice.Message.Builder> 
+         getMessagesBuilderList() {
+      return getMessagesFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilder<
+        main.java.io.grpc.chatservice.Message, main.java.io.grpc.chatservice.Message.Builder, main.java.io.grpc.chatservice.MessageOrBuilder> 
+        getMessagesFieldBuilder() {
+      if (messagesBuilder_ == null) {
+        messagesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            main.java.io.grpc.chatservice.Message, main.java.io.grpc.chatservice.Message.Builder, main.java.io.grpc.chatservice.MessageOrBuilder>(
+                messages_,
+                ((bitField0_ & 0x00000004) == 0x00000004),
+                getParentForChildren(),
+                isClean());
+        messages_ = null;
+      }
+      return messagesBuilder_;
+    }
+
+    private java.util.List<main.java.io.grpc.chatservice.Channel> channels_ =
+      java.util.Collections.emptyList();
+    private void ensureChannelsIsMutable() {
+      if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+        channels_ = new java.util.ArrayList<main.java.io.grpc.chatservice.Channel>(channels_);
+        bitField0_ |= 0x00000008;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilder<
+        main.java.io.grpc.chatservice.Channel, main.java.io.grpc.chatservice.Channel.Builder, main.java.io.grpc.chatservice.ChannelOrBuilder> channelsBuilder_;
+
+    /**
+     * <code>repeated .chatservice.Channel channels = 4;</code>
+     */
+    public java.util.List<main.java.io.grpc.chatservice.Channel> getChannelsList() {
+      if (channelsBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(channels_);
+      } else {
+        return channelsBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .chatservice.Channel channels = 4;</code>
+     */
+    public int getChannelsCount() {
+      if (channelsBuilder_ == null) {
+        return channels_.size();
+      } else {
+        return channelsBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .chatservice.Channel channels = 4;</code>
+     */
+    public main.java.io.grpc.chatservice.Channel getChannels(int index) {
+      if (channelsBuilder_ == null) {
+        return channels_.get(index);
+      } else {
+        return channelsBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .chatservice.Channel channels = 4;</code>
+     */
+    public Builder setChannels(
+        int index, main.java.io.grpc.chatservice.Channel value) {
+      if (channelsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureChannelsIsMutable();
+        channels_.set(index, value);
+        onChanged();
+      } else {
+        channelsBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .chatservice.Channel channels = 4;</code>
+     */
+    public Builder setChannels(
+        int index, main.java.io.grpc.chatservice.Channel.Builder builderForValue) {
+      if (channelsBuilder_ == null) {
+        ensureChannelsIsMutable();
+        channels_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        channelsBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .chatservice.Channel channels = 4;</code>
+     */
+    public Builder addChannels(main.java.io.grpc.chatservice.Channel value) {
+      if (channelsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureChannelsIsMutable();
+        channels_.add(value);
+        onChanged();
+      } else {
+        channelsBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .chatservice.Channel channels = 4;</code>
+     */
+    public Builder addChannels(
+        int index, main.java.io.grpc.chatservice.Channel value) {
+      if (channelsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureChannelsIsMutable();
+        channels_.add(index, value);
+        onChanged();
+      } else {
+        channelsBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .chatservice.Channel channels = 4;</code>
+     */
+    public Builder addChannels(
+        main.java.io.grpc.chatservice.Channel.Builder builderForValue) {
+      if (channelsBuilder_ == null) {
+        ensureChannelsIsMutable();
+        channels_.add(builderForValue.build());
+        onChanged();
+      } else {
+        channelsBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .chatservice.Channel channels = 4;</code>
+     */
+    public Builder addChannels(
+        int index, main.java.io.grpc.chatservice.Channel.Builder builderForValue) {
+      if (channelsBuilder_ == null) {
+        ensureChannelsIsMutable();
+        channels_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        channelsBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .chatservice.Channel channels = 4;</code>
+     */
+    public Builder addAllChannels(
+        java.lang.Iterable<? extends main.java.io.grpc.chatservice.Channel> values) {
+      if (channelsBuilder_ == null) {
+        ensureChannelsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, channels_);
+        onChanged();
+      } else {
+        channelsBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .chatservice.Channel channels = 4;</code>
+     */
+    public Builder clearChannels() {
+      if (channelsBuilder_ == null) {
+        channels_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+      } else {
+        channelsBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .chatservice.Channel channels = 4;</code>
+     */
+    public Builder removeChannels(int index) {
+      if (channelsBuilder_ == null) {
+        ensureChannelsIsMutable();
+        channels_.remove(index);
+        onChanged();
+      } else {
+        channelsBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .chatservice.Channel channels = 4;</code>
+     */
+    public main.java.io.grpc.chatservice.Channel.Builder getChannelsBuilder(
+        int index) {
+      return getChannelsFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .chatservice.Channel channels = 4;</code>
+     */
+    public main.java.io.grpc.chatservice.ChannelOrBuilder getChannelsOrBuilder(
+        int index) {
+      if (channelsBuilder_ == null) {
+        return channels_.get(index);  } else {
+        return channelsBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .chatservice.Channel channels = 4;</code>
+     */
+    public java.util.List<? extends main.java.io.grpc.chatservice.ChannelOrBuilder> 
+         getChannelsOrBuilderList() {
+      if (channelsBuilder_ != null) {
+        return channelsBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(channels_);
+      }
+    }
+    /**
+     * <code>repeated .chatservice.Channel channels = 4;</code>
+     */
+    public main.java.io.grpc.chatservice.Channel.Builder addChannelsBuilder() {
+      return getChannelsFieldBuilder().addBuilder(
+          main.java.io.grpc.chatservice.Channel.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .chatservice.Channel channels = 4;</code>
+     */
+    public main.java.io.grpc.chatservice.Channel.Builder addChannelsBuilder(
+        int index) {
+      return getChannelsFieldBuilder().addBuilder(
+          index, main.java.io.grpc.chatservice.Channel.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .chatservice.Channel channels = 4;</code>
+     */
+    public java.util.List<main.java.io.grpc.chatservice.Channel.Builder> 
+         getChannelsBuilderList() {
+      return getChannelsFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilder<
+        main.java.io.grpc.chatservice.Channel, main.java.io.grpc.chatservice.Channel.Builder, main.java.io.grpc.chatservice.ChannelOrBuilder> 
+        getChannelsFieldBuilder() {
+      if (channelsBuilder_ == null) {
+        channelsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            main.java.io.grpc.chatservice.Channel, main.java.io.grpc.chatservice.Channel.Builder, main.java.io.grpc.chatservice.ChannelOrBuilder>(
+                channels_,
+                ((bitField0_ & 0x00000008) == 0x00000008),
+                getParentForChildren(),
+                isClean());
+        channels_ = null;
+      }
+      return channelsBuilder_;
     }
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {

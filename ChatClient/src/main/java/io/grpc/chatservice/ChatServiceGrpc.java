@@ -23,40 +23,40 @@ public class ChatServiceGrpc {
   // Static method descriptors that strictly reflect the proto.
    
   public static final io.grpc.MethodDescriptor<main.java.io.grpc.chatservice.User,
-      main.java.io.grpc.chatservice.User> METHOD_NICK =
+      main.java.io.grpc.chatservice.RetVal> METHOD_NICK =
       io.grpc.MethodDescriptor.create(
           io.grpc.MethodDescriptor.MethodType.UNARY,
           generateFullMethodName(
               "chatservice.ChatService", "nick"),
           main.java.io.grpc.protobuf.ProtoUtils.marshaller(main.java.io.grpc.chatservice.User.getDefaultInstance()),
-          main.java.io.grpc.protobuf.ProtoUtils.marshaller(main.java.io.grpc.chatservice.User.getDefaultInstance()));
+          main.java.io.grpc.protobuf.ProtoUtils.marshaller(main.java.io.grpc.chatservice.RetVal.getDefaultInstance()));
    
   public static final io.grpc.MethodDescriptor<main.java.io.grpc.chatservice.ChannelUser,
-      main.java.io.grpc.chatservice.Channel> METHOD_JOIN =
+      main.java.io.grpc.chatservice.RetVal> METHOD_JOIN =
       io.grpc.MethodDescriptor.create(
           io.grpc.MethodDescriptor.MethodType.UNARY,
           generateFullMethodName(
               "chatservice.ChatService", "join"),
               main.java.io.grpc.protobuf.ProtoUtils.marshaller(main.java.io.grpc.chatservice.ChannelUser.getDefaultInstance()),
-              main.java.io.grpc.protobuf.ProtoUtils.marshaller(main.java.io.grpc.chatservice.Channel.getDefaultInstance()));
+              main.java.io.grpc.protobuf.ProtoUtils.marshaller(main.java.io.grpc.chatservice.RetVal.getDefaultInstance()));
    
   public static final io.grpc.MethodDescriptor<main.java.io.grpc.chatservice.ChannelUser,
-      main.java.io.grpc.chatservice.Channel> METHOD_LEAVE =
+      main.java.io.grpc.chatservice.RetVal> METHOD_LEAVE =
       io.grpc.MethodDescriptor.create(
           io.grpc.MethodDescriptor.MethodType.UNARY,
           generateFullMethodName(
               "chatservice.ChatService", "leave"),
               main.java.io.grpc.protobuf.ProtoUtils.marshaller(main.java.io.grpc.chatservice.ChannelUser.getDefaultInstance()),
-              main.java.io.grpc.protobuf.ProtoUtils.marshaller(main.java.io.grpc.chatservice.Channel.getDefaultInstance()));
+              main.java.io.grpc.protobuf.ProtoUtils.marshaller(main.java.io.grpc.chatservice.RetVal.getDefaultInstance()));
    
   public static final io.grpc.MethodDescriptor<main.java.io.grpc.chatservice.User,
-      main.java.io.grpc.chatservice.User> METHOD_EXIT =
+      main.java.io.grpc.chatservice.RetVal> METHOD_EXIT =
       io.grpc.MethodDescriptor.create(
           io.grpc.MethodDescriptor.MethodType.UNARY,
           generateFullMethodName(
               "chatservice.ChatService", "exit"),
               main.java.io.grpc.protobuf.ProtoUtils.marshaller(main.java.io.grpc.chatservice.User.getDefaultInstance()),
-              main.java.io.grpc.protobuf.ProtoUtils.marshaller(main.java.io.grpc.chatservice.User.getDefaultInstance()));
+              main.java.io.grpc.protobuf.ProtoUtils.marshaller(main.java.io.grpc.chatservice.RetVal.getDefaultInstance()));
    
   public static final io.grpc.MethodDescriptor<main.java.io.grpc.chatservice.User,
       main.java.io.grpc.chatservice.Message> METHOD_GET_MESSAGES =
@@ -68,13 +68,13 @@ public class ChatServiceGrpc {
               main.java.io.grpc.protobuf.ProtoUtils.marshaller(main.java.io.grpc.chatservice.Message.getDefaultInstance()));
    
   public static final io.grpc.MethodDescriptor<main.java.io.grpc.chatservice.Message,
-      main.java.io.grpc.chatservice.Message> METHOD_SEND =
+      main.java.io.grpc.chatservice.RetVal> METHOD_SEND =
       io.grpc.MethodDescriptor.create(
           io.grpc.MethodDescriptor.MethodType.UNARY,
           generateFullMethodName(
               "chatservice.ChatService", "send"),
               main.java.io.grpc.protobuf.ProtoUtils.marshaller(main.java.io.grpc.chatservice.Message.getDefaultInstance()),
-              main.java.io.grpc.protobuf.ProtoUtils.marshaller(main.java.io.grpc.chatservice.Message.getDefaultInstance()));
+              main.java.io.grpc.protobuf.ProtoUtils.marshaller(main.java.io.grpc.chatservice.RetVal.getDefaultInstance()));
 
   public static ChatServiceStub newStub(io.grpc.Channel channel) {
     return new ChatServiceStub(channel);
@@ -93,55 +93,55 @@ public class ChatServiceGrpc {
   public static interface ChatService {
 
     public void nick(main.java.io.grpc.chatservice.User request,
-        io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.User> responseObserver);
+        io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.RetVal> responseObserver);
 
     public void join(main.java.io.grpc.chatservice.ChannelUser request,
-        io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.Channel> responseObserver);
+        io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.RetVal> responseObserver);
 
     public void leave(main.java.io.grpc.chatservice.ChannelUser request,
-        io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.Channel> responseObserver);
+        io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.RetVal> responseObserver);
 
     public void exit(main.java.io.grpc.chatservice.User request,
-        io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.User> responseObserver);
+        io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.RetVal> responseObserver);
 
     public void getMessages(main.java.io.grpc.chatservice.User request,
         io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.Message> responseObserver);
 
     public void send(main.java.io.grpc.chatservice.Message request,
-        io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.Message> responseObserver);
+        io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.RetVal> responseObserver);
   }
 
   public static interface ChatServiceBlockingClient {
 
-    public main.java.io.grpc.chatservice.User nick(main.java.io.grpc.chatservice.User request);
+    public main.java.io.grpc.chatservice.RetVal nick(main.java.io.grpc.chatservice.User request);
 
-    public main.java.io.grpc.chatservice.Channel join(main.java.io.grpc.chatservice.ChannelUser request);
+    public main.java.io.grpc.chatservice.RetVal join(main.java.io.grpc.chatservice.ChannelUser request);
 
-    public main.java.io.grpc.chatservice.Channel leave(main.java.io.grpc.chatservice.ChannelUser request);
+    public main.java.io.grpc.chatservice.RetVal leave(main.java.io.grpc.chatservice.ChannelUser request);
 
-    public main.java.io.grpc.chatservice.User exit(main.java.io.grpc.chatservice.User request);
+    public main.java.io.grpc.chatservice.RetVal exit(main.java.io.grpc.chatservice.User request);
 
     public java.util.Iterator<main.java.io.grpc.chatservice.Message> getMessages(
         main.java.io.grpc.chatservice.User request);
 
-    public main.java.io.grpc.chatservice.Message send(main.java.io.grpc.chatservice.Message request);
+    public main.java.io.grpc.chatservice.RetVal send(main.java.io.grpc.chatservice.Message request);
   }
 
   public static interface ChatServiceFutureClient {
 
-    public com.google.common.util.concurrent.ListenableFuture<main.java.io.grpc.chatservice.User> nick(
+    public com.google.common.util.concurrent.ListenableFuture<main.java.io.grpc.chatservice.RetVal> nick(
         main.java.io.grpc.chatservice.User request);
 
-    public com.google.common.util.concurrent.ListenableFuture<main.java.io.grpc.chatservice.Channel> join(
+    public com.google.common.util.concurrent.ListenableFuture<main.java.io.grpc.chatservice.RetVal> join(
         main.java.io.grpc.chatservice.ChannelUser request);
 
-    public com.google.common.util.concurrent.ListenableFuture<main.java.io.grpc.chatservice.Channel> leave(
+    public com.google.common.util.concurrent.ListenableFuture<main.java.io.grpc.chatservice.RetVal> leave(
         main.java.io.grpc.chatservice.ChannelUser request);
 
-    public com.google.common.util.concurrent.ListenableFuture<main.java.io.grpc.chatservice.User> exit(
+    public com.google.common.util.concurrent.ListenableFuture<main.java.io.grpc.chatservice.RetVal> exit(
         main.java.io.grpc.chatservice.User request);
 
-    public com.google.common.util.concurrent.ListenableFuture<main.java.io.grpc.chatservice.Message> send(
+    public com.google.common.util.concurrent.ListenableFuture<main.java.io.grpc.chatservice.RetVal> send(
         main.java.io.grpc.chatservice.Message request);
   }
 
@@ -162,44 +162,38 @@ public class ChatServiceGrpc {
       return new ChatServiceStub(channel, callOptions);
     }
 
-    @java.lang.Override
     public void nick(main.java.io.grpc.chatservice.User request,
-        io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.User> responseObserver) {
+        io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.RetVal> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_NICK, getCallOptions()), request, responseObserver);
     }
 
-    @java.lang.Override
     public void join(main.java.io.grpc.chatservice.ChannelUser request,
-        io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.Channel> responseObserver) {
+        io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.RetVal> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_JOIN, getCallOptions()), request, responseObserver);
     }
 
-    @java.lang.Override
     public void leave(main.java.io.grpc.chatservice.ChannelUser request,
-        io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.Channel> responseObserver) {
+        io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.RetVal> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_LEAVE, getCallOptions()), request, responseObserver);
     }
 
-    @java.lang.Override
     public void exit(main.java.io.grpc.chatservice.User request,
-        io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.User> responseObserver) {
+        io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.RetVal> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_EXIT, getCallOptions()), request, responseObserver);
     }
 
-    @java.lang.Override
     public void getMessages(main.java.io.grpc.chatservice.User request,
         io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.Message> responseObserver) {
       asyncServerStreamingCall(
           getChannel().newCall(METHOD_GET_MESSAGES, getCallOptions()), request, responseObserver);
     }
 
-    @java.lang.Override
     public void send(main.java.io.grpc.chatservice.Message request,
-        io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.Message> responseObserver) {
+        io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.RetVal> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_SEND, getCallOptions()), request, responseObserver);
     }
@@ -222,39 +216,33 @@ public class ChatServiceGrpc {
       return new ChatServiceBlockingStub(channel, callOptions);
     }
 
-    @java.lang.Override
-    public main.java.io.grpc.chatservice.User nick(main.java.io.grpc.chatservice.User request) {
+    public main.java.io.grpc.chatservice.RetVal nick(main.java.io.grpc.chatservice.User request) {
       return blockingUnaryCall(
           getChannel().newCall(METHOD_NICK, getCallOptions()), request);
     }
 
-    @java.lang.Override
-    public main.java.io.grpc.chatservice.Channel join(main.java.io.grpc.chatservice.ChannelUser request) {
+    public main.java.io.grpc.chatservice.RetVal join(main.java.io.grpc.chatservice.ChannelUser request) {
       return blockingUnaryCall(
           getChannel().newCall(METHOD_JOIN, getCallOptions()), request);
     }
 
-    @java.lang.Override
-    public main.java.io.grpc.chatservice.Channel leave(main.java.io.grpc.chatservice.ChannelUser request) {
+    public main.java.io.grpc.chatservice.RetVal leave(main.java.io.grpc.chatservice.ChannelUser request) {
       return blockingUnaryCall(
           getChannel().newCall(METHOD_LEAVE, getCallOptions()), request);
     }
 
-    @java.lang.Override
-    public main.java.io.grpc.chatservice.User exit(main.java.io.grpc.chatservice.User request) {
+    public main.java.io.grpc.chatservice.RetVal exit(main.java.io.grpc.chatservice.User request) {
       return blockingUnaryCall(
           getChannel().newCall(METHOD_EXIT, getCallOptions()), request);
     }
 
-    @java.lang.Override
     public java.util.Iterator<main.java.io.grpc.chatservice.Message> getMessages(
         main.java.io.grpc.chatservice.User request) {
       return blockingServerStreamingCall(
           getChannel().newCall(METHOD_GET_MESSAGES, getCallOptions()), request);
     }
 
-    @java.lang.Override
-    public main.java.io.grpc.chatservice.Message send(main.java.io.grpc.chatservice.Message request) {
+    public main.java.io.grpc.chatservice.RetVal send(main.java.io.grpc.chatservice.Message request) {
       return blockingUnaryCall(
           getChannel().newCall(METHOD_SEND, getCallOptions()), request);
     }
@@ -277,36 +265,31 @@ public class ChatServiceGrpc {
       return new ChatServiceFutureStub(channel, callOptions);
     }
 
-    @java.lang.Override
-    public com.google.common.util.concurrent.ListenableFuture<main.java.io.grpc.chatservice.User> nick(
+    public com.google.common.util.concurrent.ListenableFuture<main.java.io.grpc.chatservice.RetVal> nick(
         main.java.io.grpc.chatservice.User request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_NICK, getCallOptions()), request);
     }
 
-    @java.lang.Override
-    public com.google.common.util.concurrent.ListenableFuture<main.java.io.grpc.chatservice.Channel> join(
+    public com.google.common.util.concurrent.ListenableFuture<main.java.io.grpc.chatservice.RetVal> join(
         main.java.io.grpc.chatservice.ChannelUser request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_JOIN, getCallOptions()), request);
     }
 
-    @java.lang.Override
-    public com.google.common.util.concurrent.ListenableFuture<main.java.io.grpc.chatservice.Channel> leave(
+    public com.google.common.util.concurrent.ListenableFuture<main.java.io.grpc.chatservice.RetVal> leave(
         main.java.io.grpc.chatservice.ChannelUser request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_LEAVE, getCallOptions()), request);
     }
 
-    @java.lang.Override
-    public com.google.common.util.concurrent.ListenableFuture<main.java.io.grpc.chatservice.User> exit(
+    public com.google.common.util.concurrent.ListenableFuture<main.java.io.grpc.chatservice.RetVal> exit(
         main.java.io.grpc.chatservice.User request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_EXIT, getCallOptions()), request);
     }
 
-    @java.lang.Override
-    public com.google.common.util.concurrent.ListenableFuture<main.java.io.grpc.chatservice.Message> send(
+    public com.google.common.util.concurrent.ListenableFuture<main.java.io.grpc.chatservice.RetVal> send(
         main.java.io.grpc.chatservice.Message request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_SEND, getCallOptions()), request);
@@ -321,11 +304,10 @@ public class ChatServiceGrpc {
         asyncUnaryCall(
           new io.grpc.stub.ServerCalls.UnaryMethod<
               main.java.io.grpc.chatservice.User,
-              main.java.io.grpc.chatservice.User>() {
-            @java.lang.Override
+              main.java.io.grpc.chatservice.RetVal>() {
             public void invoke(
                 main.java.io.grpc.chatservice.User request,
-                io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.User> responseObserver) {
+                io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.RetVal> responseObserver) {
               serviceImpl.nick(request, responseObserver);
             }
           }))
@@ -334,11 +316,10 @@ public class ChatServiceGrpc {
         asyncUnaryCall(
           new io.grpc.stub.ServerCalls.UnaryMethod<
               main.java.io.grpc.chatservice.ChannelUser,
-              main.java.io.grpc.chatservice.Channel>() {
-            @java.lang.Override
+              main.java.io.grpc.chatservice.RetVal>() {
             public void invoke(
                 main.java.io.grpc.chatservice.ChannelUser request,
-                io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.Channel> responseObserver) {
+                io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.RetVal> responseObserver) {
               serviceImpl.join(request, responseObserver);
             }
           }))
@@ -347,11 +328,10 @@ public class ChatServiceGrpc {
         asyncUnaryCall(
           new io.grpc.stub.ServerCalls.UnaryMethod<
               main.java.io.grpc.chatservice.ChannelUser,
-              main.java.io.grpc.chatservice.Channel>() {
-            @java.lang.Override
+              main.java.io.grpc.chatservice.RetVal>() {
             public void invoke(
                 main.java.io.grpc.chatservice.ChannelUser request,
-                io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.Channel> responseObserver) {
+                io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.RetVal> responseObserver) {
               serviceImpl.leave(request, responseObserver);
             }
           }))
@@ -360,11 +340,10 @@ public class ChatServiceGrpc {
         asyncUnaryCall(
           new io.grpc.stub.ServerCalls.UnaryMethod<
               main.java.io.grpc.chatservice.User,
-              main.java.io.grpc.chatservice.User>() {
-            @java.lang.Override
+              main.java.io.grpc.chatservice.RetVal>() {
             public void invoke(
                 main.java.io.grpc.chatservice.User request,
-                io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.User> responseObserver) {
+                io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.RetVal> responseObserver) {
               serviceImpl.exit(request, responseObserver);
             }
           }))
@@ -374,7 +353,6 @@ public class ChatServiceGrpc {
           new io.grpc.stub.ServerCalls.ServerStreamingMethod<
               main.java.io.grpc.chatservice.User,
               main.java.io.grpc.chatservice.Message>() {
-            @java.lang.Override
             public void invoke(
                 main.java.io.grpc.chatservice.User request,
                 io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.Message> responseObserver) {
@@ -386,11 +364,10 @@ public class ChatServiceGrpc {
         asyncUnaryCall(
           new io.grpc.stub.ServerCalls.UnaryMethod<
               main.java.io.grpc.chatservice.Message,
-              main.java.io.grpc.chatservice.Message>() {
-            @java.lang.Override
+              main.java.io.grpc.chatservice.RetVal>() {
             public void invoke(
                 main.java.io.grpc.chatservice.Message request,
-                io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.Message> responseObserver) {
+                io.grpc.stub.StreamObserver<main.java.io.grpc.chatservice.RetVal> responseObserver) {
               serviceImpl.send(request, responseObserver);
             }
           })).build();

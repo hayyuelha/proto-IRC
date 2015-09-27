@@ -15,6 +15,8 @@ message Message {
 message User {
 	string clientKey = 1;
 	string nick = 2;
+	repeated Message messages = 3;
+	repeated Channel channels = 4;
 }
 
 message ChannelUser {
@@ -27,11 +29,15 @@ message Channel {
 	repeated User users = 2;
 }
 
+message RetVal {
+	string retval = 1;
+}
+
 service ChatService {
-	rpc nick (User) returns (User) {}
-	rpc join (ChannelUser) returns (Channel) {}
-	rpc leave (ChannelUser) returns (Channel) {}
-	rpc exit (User) returns (User) {}
+	rpc nick (User) returns (RetVal) {}
+	rpc join (ChannelUser) returns (RetVal) {}
+	rpc leave (ChannelUser) returns (RetVal) {}
+	rpc exit (User) returns (RetVal) {}
 	rpc getMessages (User) returns (stream Message) {}
-	rpc send (Message) returns (Message) {}
+	rpc send (Message) returns (RetVal) {}
 }

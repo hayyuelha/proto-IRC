@@ -2,6 +2,7 @@ package main.java.ProtoChatClient.ChatClient;
 
 import java.math.BigInteger;
 import java.security.SecureRandom;
+import java.util.Iterator;
 import java.util.Scanner;
 
 import main.java.io.grpc.chatservice.*;
@@ -23,8 +24,9 @@ public class App
 	private static final String host = "localhost";
 	private static ChannelImpl client;
 	private static String clientKey;
-	private static ChatServiceBlockingClient blockingStub;
+	private static ChatServiceBlockingStub blockingStub;
 	private static ChatService asyncStub;
+	public static boolean exit = false;
 	
     public static void main( String[] args )
     {
@@ -36,27 +38,48 @@ public class App
         
         SecureRandom random = new SecureRandom(); //generate key for client
 		clientKey = new BigInteger(35, random).toString(32);
-        
-		Scanner input = new Scanner(System.in);
-		String cmdString = input.nextLine();
-		if (cmdString.startsWith("/")){
-			String[] cmd = cmdString.split("\\s+");
-			switch (cmd[0]){
-				case "/NICK" :
-					User u = User.newBuilder().setNick("test").setClientKey("token").build();
-					User ret = blockingStub.nick(u);
-					System.out.println(ret.getNick());
-					break;
-				default :
-					break;
+		System.out.println("Starting client ...");
+		Thread receiver = new Thread(){
+			@Override
+			public void run() {
+				while (!exit) {
+						Iterator<Message> mlist = blockingStub.getMessages(User.newBuilder().setClientKey(clientKey).buildPartial());
+						if (mlist.hasNext()) {
+							Message m = mlist.next();
+							System.out.println("[" + m.getChannel() + "] (" + m.getClientKey() + ") " + m.getMessage());
+						}
+						try {
+							Thread.sleep(3000);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+				}
 			}
-			
+		};
+		Thread sender = new Thread(){
+			@Override
+			public void run() {
+				while (!exit) {
+						perform(blockingStub);
+				}
+			}
+		};
+		sender.start();
+		receiver.start();
+		try {
+			sender.join();
+			receiver.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		
     }
     
     private static void perform(ChatServiceBlockingStub b)
     {
-		String ret = "";
+		RetVal ret;
 		Scanner input = new Scanner(System.in);
 		String cmdString = input.nextLine();
 		if (cmdString.startsWith("/")){
@@ -67,46 +90,52 @@ public class App
 			Channel retC;
 			switch (cmd[0]){
 				case "/NICK":	
-					if (cmd.length == 1)
-						cmd[1] = "";
-					
-					u = User.newBuilder().setNick(cmd[1]).setClientKey(clientKey).build();
-					retU = blockingStub.nick(u);
-					System.out.println("Online as " + retU.getNick());
-					
+					if (cmd.length > 1)
+						u = User.newBuilder().setNick(cmd[1]).setClientKey(clientKey).build();
+					else
+						u = User.newBuilder().setNick("").setClientKey(clientKey).build();
+					ret = b.nick(u);
+					System.out.println(ret.getRetval());
 					break;
 				case "/JOIN":	
-					if (cmd.length == 1)
-						cmd[1] = ""; 
-					
-					cu = ChannelUser.newBuilder().setClientKey(clientKey).setChannelName(cmd[1]).build();
-					retC = blockingStub.join(cu);
-					System.out.println("Join channel " + retC.getChannelName());
+					if (cmd.length > 1) 
+						cu = ChannelUser.newBuilder().setClientKey(clientKey).setChannelName(cmd[1]).build();
+					else
+						cu = ChannelUser.newBuilder().setClientKey(clientKey).setChannelName("").build();
+					ret = b.join(cu);
+					System.out.println(ret.getRetval());
 					break;
-//				case "/LEAVE": 	
-//					ret = client.leave(cmd[1], clientKey);
-//					System.out.println(ret);
-//					break;
-//				case "/EXIT": 	
-//					ret = client.exit(clientKey);
-//					System.out.println("Going offline...");
-//					exit = true;
-//					break;
+				case "/LEAVE": 	
+					if (cmd.length > 1) 
+						cu = ChannelUser.newBuilder().setClientKey(clientKey).setChannelName(cmd[1]).build();
+					else
+						cu = ChannelUser.newBuilder().setClientKey(clientKey).setChannelName("").build();
+					ret = b.leave(cu);
+					System.out.println(ret.getRetval());
+					break;
+				case "/EXIT":
+					u = User.newBuilder().setClientKey(clientKey).buildPartial();
+					ret = b.exit(u);
+					System.out.println(ret.getRetval());
+					exit = true;
+					break;
 				default:
 					break;
 			}
 		} 
-//		else if (cmdString.startsWith("@")){
-//			String chName = null;
-//			String msg = null;
-//			if(cmdString.contains(" ")){
-//				int idx = cmdString.indexOf(" ");
-//			    chName = cmdString.substring(1, idx);
-//			    msg = cmdString.substring(idx+1);
-//			}
-//			ret = client.send(new Message(chName, msg, clientKey));
-//		} else {
-//			ret = client.send(new Message("", cmdString, clientKey));
-//		}
+		else if (cmdString.startsWith("@")){
+			String chName = null;
+			String msg = null;
+			if(cmdString.contains(" ")){
+				int idx = cmdString.indexOf(" ");
+			    chName = cmdString.substring(1, idx);
+			    msg = cmdString.substring(idx+1);
+			}
+			ret = b.send(Message.newBuilder().setChannel(chName).setClientKey(clientKey)
+					.setMessage(msg).build());
+		} else {
+			ret = b.send(Message.newBuilder().setChannel("").setClientKey(clientKey)
+					.setMessage(cmdString).build());
+		}
     }
 }
