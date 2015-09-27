@@ -1,0 +1,6 @@
+compiler.compileProtoFiles=true
+compiler.javaCodeGenerationEnabled=true
+compiler.protocFilePath=/home/hayyuhanifah/Documents/PAT/grpc-java/compiler/build/binaries/java_pluginExecutable/protoc-gen-grpc-java
+compiler.useProtocInCustomPath=true
+compiler.useProtocInSystemPath=false
+eclipse.preferences.version=1

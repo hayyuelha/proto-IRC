@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package chatservice;
+
+option java_multiple_files = true;
+option java_package = "io.grpc.chatservice";
+option java_outer_classname = "ChatServiceProto";
+
+message Message {
+	string channel = 1;
+	string message = 2;
+	string clientKey = 3;
+}
+
+message User {
+	string clientKey = 1;
+	string nick = 2;
+}
+
+message ChannelUser {
+	string channelName = 1;
+	string clientKey = 2;
+}
+
+message Channel {
+	string channelName = 1;
+	repeated User users = 2;
+}
+
+service ChatService {
+	rpc nick (User) returns (User) {}
+	rpc join (Channel) returns (Channel) {}
+	rpc leave (Channel) returns (Channel) {}
+	rpc exit (User) returns (User) {}
+	rpc getMessages (User) returns (stream Message) {}
+	rpc send (Message) returns (Message) {}
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="io.grpc.chatservice.ChatServiceGrpc.ChatService"/>
+<fullyQualifiedTypeName name="java.util.logging.Logger"/>
+<fullyQualifiedTypeName name="io.grpc.Server"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="io.grpc.netty.NettyServerBuilder"/>
+<fullyQualifiedTypeName name="io.grpc.netty.NettyChannelBuilder"/>
+<fullyQualifiedTypeName name="io.grpc.netty.NegotiationType"/>
+<fullyQualifiedTypeName name="io.grpc.chatservice.ChatServiceGrpc"/>
+<fullyQualifiedTypeName name="io.grpc.chatservice.ChatServiceGrpc.ChatServiceBlockingStub"/>
+<fullyQualifiedTypeName name="io.grpc.chatservice.ChatServiceGrpc.ChatServiceStub"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+</qualifiedTypeNameHistroy>

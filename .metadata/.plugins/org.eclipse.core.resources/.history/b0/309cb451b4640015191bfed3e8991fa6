@@ -1,0 +1,5 @@
+package ProtoChatServer.ChatServer;
+
+public class IRCServer {
+
+}
