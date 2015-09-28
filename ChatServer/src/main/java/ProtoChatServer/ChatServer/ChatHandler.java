@@ -1,6 +1,5 @@
 package main.java.ProtoChatServer.ChatServer;
 
-import java.util.Collection;
 import java.util.List;
 
 import main.java.io.grpc.chatservice.Channel;
@@ -26,7 +25,7 @@ public class ChatHandler implements  main.java.io.grpc.chatservice.ChatServiceGr
 			
 		}
 		App.users.addUser(u2);
-//		System.out.println(App.users.getListUsers().get(0).getNick());
+		System.out.println("Total users: " + App.users.getListUsers().size());
 		RetVal r = RetVal.newBuilder().setRetval("Online as " + u2.getNick()).build();
 		return r;
 	}
@@ -35,12 +34,19 @@ public class ChatHandler implements  main.java.io.grpc.chatservice.ChatServiceGr
 		Channel c;
 		if (cu.getChannelName().equals("")) {
 			int temp = App.channels.getListChannels().size();
-			c = Channel.newBuilder().setChannelName("channel" + String.valueOf(temp)).buildPartial();
+			c = Channel.newBuilder().setChannelName("channel" + String.valueOf(temp)).build();
 			
 		} else {
-			c = Channel.newBuilder().setChannelName(cu.getChannelName()).buildPartial();
+			c = Channel.newBuilder().setChannelName(cu.getChannelName()).build();
 		}
-		App.channels.addChannel(c);
+		User u = App.users.getUser(cu.getClientKey());
+		if (!App.channels.isExist(c.getChannelName())) 
+			App.channels.addChannel(c);
+			
+		App.channels.getChannel(c.getChannelName()).getUsersList().add(u);
+		
+		System.out.println("Total channels: " + App.channels.getListChannels().size()
+				+ "with nMember of currently added channel is " + App.channels.getChannel(c.getChannelName()).getUsersCount());
 		RetVal r = RetVal.newBuilder().setRetval("Join channel " + c.getChannelName()).build();
 		return r;
 	}
@@ -76,12 +82,14 @@ public class ChatHandler implements  main.java.io.grpc.chatservice.ChatServiceGr
 		}
 		
 		c = App.channels.getChannel(cu.getChannelName());
-		System.out.println(c.getUsersList().get(0));
+//		System.out.println(c.getUsersList().get(0));
 		if (!c.getUsersList().contains(user)){
 			return RetVal.newBuilder().setRetval("You're not registered as member of " + c.getChannelName()).build();
 		}
+		System.out.println("NMember of the chennel " + c.getUsersCount());
 		c.getUsersList().remove(user);
 		user.getChannelsList().remove(c);
+		System.out.println("After a member leaving " + c.getUsersCount());
 		return RetVal.newBuilder().setRetval("Leaving channel " + c.getChannelName()).build();
 	}
 
@@ -98,6 +106,7 @@ public class ChatHandler implements  main.java.io.grpc.chatservice.ChatServiceGr
 		App.channels.removeUser(user);
 		App.users.removeUser(user);
 		RetVal r = RetVal.newBuilder().setRetval("Going offline...").build();
+		System.out.println("Total users: " + App.users.getListUsers().size());
 		return r;
 	}
 
@@ -137,7 +146,7 @@ public class ChatHandler implements  main.java.io.grpc.chatservice.ChatServiceGr
 	public void getMessages(User request,
 			StreamObserver<Message> responseObserver) {
 		// TODO Auto-generated method stub
-		System.out.println("Receiving...");
+//		System.out.println("Receiving...");
 		User user = App.users.getUser(request.getClientKey());
 		List<Message> m = user.getMessagesList();
 		for (Message msg : m) {

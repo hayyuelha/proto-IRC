@@ -3,7 +3,6 @@
 <fullyQualifiedTypeName name="java.util.logging.Logger"/>
 <fullyQualifiedTypeName name="io.grpc.Server"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="io.grpc.netty.NettyServerBuilder"/>
 <fullyQualifiedTypeName name="io.grpc.netty.NettyChannelBuilder"/>
@@ -20,4 +19,8 @@
 <fullyQualifiedTypeName name="main.java.io.grpc.chatservice.ChatServiceGrpc.ChatServiceBlockingClient"/>
 <fullyQualifiedTypeName name="main.java.io.grpc.chatservice.ChatServiceGrpc.ChatService"/>
 <fullyQualifiedTypeName name="main.java.io.grpc.chatservice.ChatServiceGrpc.ChatServiceBlockingStub"/>
+<fullyQualifiedTypeName name="main.java.io.grpc.chatservice.Message"/>
+<fullyQualifiedTypeName name="main.java.ProtoChatServer.ChatServer.App"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.Collection"/>
 </qualifiedTypeNameHistroy>

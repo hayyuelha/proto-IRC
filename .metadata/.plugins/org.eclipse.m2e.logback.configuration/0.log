@@ -1535,3 +1535,47 @@ org.eclipse.core.runtime.CoreException: Launch configuration App (2) references 
 2015-09-27 23:09:53,885 [Worker-79] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/hayyuhanifah/Documents/protoExercise/ChatServer/src/main/resources
 2015-09-27 23:09:53,900 [Worker-79] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2015-09-27 23:09:53,901 [Worker-79] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/hayyuhanifah/Documents/protoExercise/ChatServer/src/test/resources
+2015-09-28 08:04:26,524 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-28 08:04:26,545 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/hayyuhanifah/Documents/protoExercise/ChatServer/src/main/resources
+2015-09-28 08:04:26,561 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-28 08:04:26,562 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/hayyuhanifah/Documents/protoExercise/ChatServer/src/test/resources
+2015-09-28 08:04:39,661 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-28 08:04:39,665 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/hayyuhanifah/Documents/protoExercise/ChatServer/src/main/resources
+2015-09-28 08:04:39,674 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-28 08:04:39,675 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/hayyuhanifah/Documents/protoExercise/ChatServer/src/test/resources
+2015-09-28 08:05:41,250 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-28 08:05:41,250 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/hayyuhanifah/Documents/protoExercise/ChatServer/src/main/resources
+2015-09-28 08:05:41,261 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-28 08:05:41,261 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/hayyuhanifah/Documents/protoExercise/ChatServer/src/test/resources
+2015-09-28 08:06:13,739 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-28 08:06:13,740 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/hayyuhanifah/Documents/protoExercise/ChatServer/src/main/resources
+2015-09-28 08:06:13,746 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-28 08:06:13,747 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/hayyuhanifah/Documents/protoExercise/ChatServer/src/test/resources
+2015-09-28 08:06:33,425 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-28 08:06:33,426 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/hayyuhanifah/Documents/protoExercise/ChatServer/src/main/resources
+2015-09-28 08:06:33,435 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-28 08:06:33,436 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/hayyuhanifah/Documents/protoExercise/ChatServer/src/test/resources
+2015-09-28 08:09:04,185 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-28 08:09:04,186 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/hayyuhanifah/Documents/protoExercise/ChatServer/src/main/resources
+2015-09-28 08:09:04,199 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-28 08:09:04,200 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/hayyuhanifah/Documents/protoExercise/ChatServer/src/test/resources
+2015-09-28 08:10:36,702 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-28 08:10:36,703 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/hayyuhanifah/Documents/protoExercise/ChatServer/src/main/resources
+2015-09-28 08:10:36,711 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-28 08:10:36,712 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/hayyuhanifah/Documents/protoExercise/ChatServer/src/test/resources
+2015-09-28 08:11:51,865 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-28 08:11:51,866 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/hayyuhanifah/Documents/protoExercise/ChatServer/src/main/resources
+2015-09-28 08:11:51,882 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-28 08:11:51,882 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/hayyuhanifah/Documents/protoExercise/ChatServer/src/test/resources
+2015-09-28 08:24:32,138 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-28 08:24:32,140 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/hayyuhanifah/Documents/protoExercise/ChatServer/src/main/resources
+2015-09-28 08:24:32,156 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-28 08:24:32,157 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/hayyuhanifah/Documents/protoExercise/ChatServer/src/test/resources
+2015-09-28 08:28:55,191 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-28 08:28:55,192 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/hayyuhanifah/Documents/protoExercise/ChatServer/src/main/resources
+2015-09-28 08:28:55,207 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-28 08:28:55,207 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/hayyuhanifah/Documents/protoExercise/ChatServer/src/test/resources
+2015-09-28 08:44:09,286 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-28 08:44:09,287 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/hayyuhanifah/Documents/protoExercise/ChatServer/src/main/resources
+2015-09-28 08:44:09,302 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-28 08:44:09,303 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/hayyuhanifah/Documents/protoExercise/ChatServer/src/test/resources
