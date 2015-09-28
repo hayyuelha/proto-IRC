@@ -66,17 +66,17 @@ public class App
     }
 	
 	public static class Channels {
-		private List<Channel> channels;
+		private List<ChannelServer> channels;
 		
 		public Channels() {
-			channels = new ArrayList<Channel>();
+			channels = new ArrayList<ChannelServer>();
 		}
 		
-		public void addChannel(Channel channel) {
+		public void addChannel(ChannelServer channel) {
 			channels.add(channel);
 		}
 		
-		public void removeChannel(Channel channel) {
+		public void removeChannel(ChannelServer channel) {
 			channels.remove(channel);
 		}
 		
@@ -85,7 +85,7 @@ public class App
 			boolean ret = false;
 			int i = 0;
 			while (!ret && i < channels.size()) {
-				if (channels.get(i).getChannelName().equals(channelName))
+				if (channels.get(i).getName().equals(channelName))
 					ret = true;
 				i++;
 			}
@@ -93,12 +93,12 @@ public class App
 		}
 		
 		//Get channel instance by channelName
-		public Channel getChannel(String channelName) {
-			Channel chInstance = Channel.newBuilder().build();
+		public ChannelServer getChannel(String channelName) {
+			ChannelServer chInstance = new ChannelServer();
 			boolean ret = false;
 			int i = 0;
 			while (!ret && i < channels.size()) {
-				if (channels.get(i).getChannelName().equals(channelName)) {
+				if (channels.get(i).getName().equals(channelName)) {
 					ret = true;
 					chInstance = channels.get(i);
 				}
@@ -107,47 +107,47 @@ public class App
 			return chInstance;
 		}
 		
-		public void removeUser(User user) {
-			for (Channel c : channels) {
-				c.getUsersList().remove(user);
+		public void removeUser(UserServer user) {
+			for (ChannelServer c : channels) {
+				c.removeMember(user);
 			}
 		}
 		
-		public void addMessage(Message m) {
-			for (Channel c : channels) {
-				List<User> tmpList = c.getUsersList();
-				for (User u : tmpList) {
-					//TODO add message for user u
-					Message msg = Message.newBuilder().setChannel(m.getChannel()).setMessage(m.getMessage())
-							.setClientKey(m.getClientKey()).build();
-					u.getMessagesList().add(msg);
-				}
-			}
-		}
+//		public void addMessage(Message m) {
+//			for (ChannelServer c : channels) {
+//				List<User> tmpList = c.getUsersList();
+//				for (User u : tmpList) {
+//					//TODO add message for user u
+//					Message msg = Message.newBuilder().setChannel(m.getChannel()).setMessage(m.getMessage())
+//							.setClientKey(m.getClientKey()).build();
+//					u.getMessagesList().add(msg);
+//				}
+//			}
+//		}
 		
-		public List<Channel> getListChannels() {
+		public List<ChannelServer> getListChannels() {
 			return this.channels;
 		}
 	}
 	
 	public static class Users {
-		private List<User> users;
+		private List<UserServer> users;
 		
 		public Users() {
-			users = new ArrayList<User>();
+			users = new ArrayList<UserServer>();
 		}
 		
-		public void addUser(User user) {
+		public void addUser(UserServer user) {
 			users.add(user);
 		}
 		
-		public void removeUser(User user) {
+		public void removeUser(UserServer user) {
 			users.remove(user);
 		}
 		
 		//Get user instance by clientKey
-		public User getUser(String clientKey) {
-			User usr = User.newBuilder().build();
+		public UserServer getUser(String clientKey) {
+			UserServer usr = new UserServer();
 			boolean ret = false;
 			int i = 0;
 			while (!ret && i < users.size()) {
@@ -160,7 +160,7 @@ public class App
 			return usr;
 		}
 		
-		public List<User> getListUsers() {
+		public List<UserServer> getListUsers() {
 			return this.users;
 		}
 	}
