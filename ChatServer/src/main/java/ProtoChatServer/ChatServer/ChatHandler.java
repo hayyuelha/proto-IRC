@@ -130,7 +130,8 @@ public class ChatHandler implements  main.java.io.grpc.chatservice.ChatServiceGr
 		UserServer user = App.users.getUser(request.getClientKey());
 		List<Message> m = user.getMessage();
 		for (Message msg : m) {
-			responseObserver.onValue(msg);
+			responseObserver.onValue(Message.newBuilder().setChannel(msg.getChannel())
+					.setClientKey(msg.getClientKey()).setMessage(msg.getMessage()).build());
 		}
 		responseObserver.onCompleted();	
 	}

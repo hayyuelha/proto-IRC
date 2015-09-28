@@ -42,8 +42,8 @@ public class App
 			@Override
 			public void run() {
 				while (!exit) {
-						Iterator<Message> mlist = blockingStub.getMessages(User.newBuilder().setClientKey(clientKey).buildPartial());
-						if (mlist.hasNext()) {
+						Iterator<Message> mlist = blockingStub.getMessages(User.newBuilder().setClientKey(clientKey).build());
+						while (mlist.hasNext()) {
 							Message m = mlist.next();
 							System.out.println("[" + m.getChannel() + "] (" + m.getClientKey() + ") " + m.getMessage());
 						}
