@@ -56,14 +56,12 @@ public class ChatHandler implements  main.java.io.grpc.chatservice.ChatServiceGr
 
 	public void join(ChannelUser request,
 			StreamObserver<RetVal> responseObserver) {
-		// TODO Auto-generated method stub
 		responseObserver.onValue(_join(request));
 		responseObserver.onCompleted();
 	}
 
 	public void leave(ChannelUser request,
 			StreamObserver<RetVal> responseObserver) {
-		// TODO Auto-generated method stub
 		responseObserver.onValue(_leave(request));
 		responseObserver.onCompleted();
 	}
@@ -91,7 +89,6 @@ public class ChatHandler implements  main.java.io.grpc.chatservice.ChatServiceGr
 	}
 
 	public void exit(User request, StreamObserver<RetVal> responseObserver) {
-		// TODO Auto-generated method stub
 		System.out.println("Entering exit...");
 		responseObserver.onValue(_exit(request));
 		responseObserver.onCompleted();		
@@ -108,56 +105,34 @@ public class ChatHandler implements  main.java.io.grpc.chatservice.ChatServiceGr
 	}
 
 	public void send(Message request, StreamObserver<RetVal> responseObserver) {
-		// TODO Auto-generated method stub
 		System.out.println("Sending...");
 		responseObserver.onValue(_send(request));
 		responseObserver.onCompleted();	
 	}
 	
 	public RetVal _send(Message m) {
-//		User user = App.users.getUser(m.getClientKey());
-//		if (m.getChannel().isEmpty()) {	//send to all user's channels
-//			List<Channel> userChannels = user.getChannelsList();
-//			for (Channel c : userChannels) {
-//				Message tempMsg = Message.newBuilder().setChannel(c.getChannelName()).setClientKey(user.getNick())
-//						.setMessage(m.getMessage()).build();
-//				_sendToChannel(tempMsg, c);
-//			}
-//		} else {
-//			Channel c = App.channels.getChannel(
-//					m.getChannel());
-//			Message tempMsg = Message.newBuilder().setChannel(c.getChannelName()).setClientKey(user.getNick())
-//					.setMessage(m.getMessage()).build();
-//			_sendToChannel(tempMsg, c);
-//		}
+		UserServer user = App.users.getUser(m.getClientKey());
+		if (m.getChannel().isEmpty()) {	//send to all user's channels
+			user.addMessageToAllChannels(m);
+		} else {
+			ChannelServer c = App.channels.getChannel(
+					m.getChannel());
+			Message tempMsg = Message.newBuilder().setChannel(c.getName()).setClientKey(user.getNick())
+					.setMessage(m.getMessage()).build();
+			c.addMessage(tempMsg);
+		}
 		return RetVal.newBuilder().setRetval("Delivered!").build();
 	}
-	
-//	public void _sendToChannel(Message m, Channel c) {
-//		List<User> member = c.getUsersList();
-//		for (User u : member) {
-//			u.getMessagesList().add(m);
-//		}
-//	}
 
 	public void getMessages(User request,
 			StreamObserver<Message> responseObserver) {
-		// TODO Auto-generated method stub
 //		System.out.println("Receiving...");
-//		User user = App.users.getUser(request.getClientKey());
-//		List<Message> m = user.getMessagesList();
-//		for (Message msg : m) {
-//			responseObserver.onValue(msg);
-//		}
-//		responseObserver.onCompleted();	
-	}
-	
-	public Message _getMessages(User u) {
-		UserServer user = App.users.getUser(u.getClientKey());
-		Message m = null; 
-//		if (!user.getMessagesList().isEmpty())		
-//			m = user.getMessagesList().get(0);
-		return m;
+		UserServer user = App.users.getUser(request.getClientKey());
+		List<Message> m = user.getMessage();
+		for (Message msg : m) {
+			responseObserver.onValue(msg);
+		}
+		responseObserver.onCompleted();	
 	}
 
 }

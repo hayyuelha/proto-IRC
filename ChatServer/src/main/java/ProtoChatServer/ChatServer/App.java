@@ -2,7 +2,6 @@ package main.java.ProtoChatServer.ChatServer;
 
 import main.java.io.grpc.chatservice.*;
 import io.grpc.netty.NettyServerBuilder;
-import io.grpc.Server;
 import io.grpc.ServerImpl;
 
 import java.io.IOException;

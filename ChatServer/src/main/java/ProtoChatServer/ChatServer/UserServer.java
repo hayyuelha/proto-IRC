@@ -50,8 +50,9 @@ public class UserServer {
 	public void addMessageToAllChannels(Message m) {
 		List<ChannelServer> chList = channels.getListChannels();
 		for (ChannelServer c : chList) {
-//			m.;
-			c.addMessage(m);
+			Message tempMsg = Message.newBuilder().setChannel(c.getName()).setClientKey(nick)
+					.setMessage(m.getMessage()).build();
+			c.addMessage(tempMsg);
 		}
 	}
 	

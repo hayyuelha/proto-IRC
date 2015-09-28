@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 import main.java.io.grpc.chatservice.*;
 import main.java.io.grpc.chatservice.ChatServiceGrpc.ChatService;
-import main.java.io.grpc.chatservice.ChatServiceGrpc.ChatServiceBlockingClient;
 import main.java.io.grpc.chatservice.ChatServiceGrpc.ChatServiceBlockingStub;
 import io.grpc.ChannelImpl;
 import io.grpc.netty.NegotiationType;

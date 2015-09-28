@@ -37,8 +37,9 @@ public class ChannelServer {
 	
 	public void addMessage(Message m) {
 		for (UserServer u :  members) {
-//			Message msg = m.c;
-			u.addMessage(m);
+			Message tempMsg = Message.newBuilder().setChannel(m.getChannel()).setClientKey(m.getClientKey())
+					.setMessage(m.getMessage()).build();
+			u.addMessage(tempMsg);
 		}
 	}
 	
