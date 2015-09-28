@@ -6,6 +6,7 @@ Choirunnisa Fatima (13512084)
 
 ##Petunjuk Instalasi/Building
 Pada masing-masing root project (ChatServer atau ChatClient), jalankan perintah `mvn clean install package` 
+Untuk menjalankan aplikasi, jalankan perintah `mvn exec:java`
 
 Atau
 
