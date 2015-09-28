@@ -87,7 +87,6 @@ public class App
 			User u;
 			ChannelUser cu;
 			User retU;
-			Channel retC;
 			switch (cmd[0]){
 				case "/NICK":	
 					if (cmd.length > 1)

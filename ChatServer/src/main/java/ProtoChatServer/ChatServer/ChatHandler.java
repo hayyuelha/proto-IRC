@@ -2,7 +2,6 @@ package main.java.ProtoChatServer.ChatServer;
 
 import java.util.List;
 
-import main.java.io.grpc.chatservice.Channel;
 import main.java.io.grpc.chatservice.ChannelUser;
 import main.java.io.grpc.chatservice.Message;
 import main.java.io.grpc.chatservice.RetVal;
@@ -134,12 +133,12 @@ public class ChatHandler implements  main.java.io.grpc.chatservice.ChatServiceGr
 		return RetVal.newBuilder().setRetval("Delivered!").build();
 	}
 	
-	public void _sendToChannel(Message m, Channel c) {
-		List<User> member = c.getUsersList();
-		for (User u : member) {
-			u.getMessagesList().add(m);
-		}
-	}
+//	public void _sendToChannel(Message m, Channel c) {
+//		List<User> member = c.getUsersList();
+//		for (User u : member) {
+//			u.getMessagesList().add(m);
+//		}
+//	}
 
 	public void getMessages(User request,
 			StreamObserver<Message> responseObserver) {

@@ -24,11 +24,6 @@ public final class ChatServiceProto {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_chatservice_ChannelUser_fieldAccessorTable;
   static com.google.protobuf.Descriptors.Descriptor
-    internal_static_chatservice_Channel_descriptor;
-  static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_chatservice_Channel_fieldAccessorTable;
-  static com.google.protobuf.Descriptors.Descriptor
     internal_static_chatservice_RetVal_descriptor;
   static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -44,24 +39,21 @@ public final class ChatServiceProto {
     java.lang.String[] descriptorData = {
       "\n#protoExercise/chat_proto/chat.proto\022\013c" +
       "hatservice\">\n\007Message\022\017\n\007channel\030\001 \001(\t\022\017" +
-      "\n\007message\030\002 \001(\t\022\021\n\tclientKey\030\003 \001(\t\"w\n\004Us" +
-      "er\022\021\n\tclientKey\030\001 \001(\t\022\014\n\004nick\030\002 \001(\t\022&\n\010m" +
-      "essages\030\003 \003(\0132\024.chatservice.Message\022&\n\010c" +
-      "hannels\030\004 \003(\0132\024.chatservice.Channel\"5\n\013C" +
+      "\n\007message\030\002 \001(\t\022\021\n\tclientKey\030\003 \001(\t\"\'\n\004Us" +
+      "er\022\021\n\tclientKey\030\001 \001(\t\022\014\n\004nick\030\002 \001(\t\"5\n\013C" +
       "hannelUser\022\023\n\013channelName\030\001 \001(\t\022\021\n\tclien" +
-      "tKey\030\002 \001(\t\"@\n\007Channel\022\023\n\013channelName\030\001 \001" +
-      "(\t\022 \n\005users\030\002 \003(\0132\021.chatservice.User\"\030\n\006" +
-      "RetVal\022\016\n\006retval\030\001 \001(\t2\325\002\n\013ChatService\0220",
-      "\n\004nick\022\021.chatservice.User\032\023.chatservice." +
-      "RetVal\"\000\0227\n\004join\022\030.chatservice.ChannelUs" +
-      "er\032\023.chatservice.RetVal\"\000\0228\n\005leave\022\030.cha" +
-      "tservice.ChannelUser\032\023.chatservice.RetVa" +
-      "l\"\000\0220\n\004exit\022\021.chatservice.User\032\023.chatser" +
-      "vice.RetVal\"\000\022:\n\013getMessages\022\021.chatservi" +
-      "ce.User\032\024.chatservice.Message\"\0000\001\0223\n\004sen" +
-      "d\022\024.chatservice.Message\032\023.chatservice.Re" +
-      "tVal\"\000B3\n\035main.java.io.grpc.chatserviceB" +
-      "\020ChatServiceProtoP\001b\006proto3"
+      "tKey\030\002 \001(\t\"\030\n\006RetVal\022\016\n\006retval\030\001 \001(\t2\325\002\n" +
+      "\013ChatService\0220\n\004nick\022\021.chatservice.User\032" +
+      "\023.chatservice.RetVal\"\000\0227\n\004join\022\030.chatser" +
+      "vice.ChannelUser\032\023.chatservice.RetVal\"\000\022" +
+      "8\n\005leave\022\030.chatservice.ChannelUser\032\023.cha",
+      "tservice.RetVal\"\000\0220\n\004exit\022\021.chatservice." +
+      "User\032\023.chatservice.RetVal\"\000\022:\n\013getMessag" +
+      "es\022\021.chatservice.User\032\024.chatservice.Mess" +
+      "age\"\0000\001\0223\n\004send\022\024.chatservice.Message\032\023." +
+      "chatservice.RetVal\"\000B3\n\035main.java.io.grp" +
+      "c.chatserviceB\020ChatServiceProtoP\001b\006proto" +
+      "3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -86,21 +78,15 @@ public final class ChatServiceProto {
     internal_static_chatservice_User_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_chatservice_User_descriptor,
-        new java.lang.String[] { "ClientKey", "Nick", "Messages", "Channels", });
+        new java.lang.String[] { "ClientKey", "Nick", });
     internal_static_chatservice_ChannelUser_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_chatservice_ChannelUser_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_chatservice_ChannelUser_descriptor,
         new java.lang.String[] { "ChannelName", "ClientKey", });
-    internal_static_chatservice_Channel_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_chatservice_Channel_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_chatservice_Channel_descriptor,
-        new java.lang.String[] { "ChannelName", "Users", });
     internal_static_chatservice_RetVal_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_chatservice_RetVal_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_chatservice_RetVal_descriptor,
