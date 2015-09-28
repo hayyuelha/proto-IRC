@@ -15,8 +15,6 @@ import java.util.logging.Logger;
  */
 public class App 
 {
-	private static final Logger logger = Logger.getLogger(App.class.getName());
-
 	private final int port = 8000;
 	private ServerImpl server;
 	
@@ -30,7 +28,7 @@ public class App
 		server = NettyServerBuilder.forPort(port)
 				.addService(ChatServiceGrpc.bindService(new ChatHandler()))
 				.build().start();
-		logger.info("Server started, listening on " + port);
+		
 		users = new Users();
 		channels = new Channels();
 		Runtime.getRuntime().addShutdownHook(new Thread() {
@@ -59,8 +57,8 @@ public class App
 
 	public static void main( String[] args ) throws IOException
     {
-        System.out.println( "Hello World!" );
-        App s = new App();
+        System.out.println("Starting server...");
+		App s = new App();
         s.start();
     }
 	
@@ -111,18 +109,6 @@ public class App
 				c.removeMember(user);
 			}
 		}
-		
-//		public void addMessage(Message m) {
-//			for (ChannelServer c : channels) {
-//				List<User> tmpList = c.getUsersList();
-//				for (User u : tmpList) {
-//					//TODO add message for user u
-//					Message msg = Message.newBuilder().setChannel(m.getChannel()).setMessage(m.getMessage())
-//							.setClientKey(m.getClientKey()).build();
-//					u.getMessagesList().add(msg);
-//				}
-//			}
-//		}
 		
 		public List<ChannelServer> getListChannels() {
 			return this.channels;

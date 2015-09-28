@@ -3204,3 +3204,108 @@ org.apache.http.conn.ConnectTimeoutException: Connect to download.springsource.c
 	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:259)
 	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 16:50:50.273
+!MESSAGE Launch configuration App (3) references closed project ChatClient
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 16:50:50.309
+!MESSAGE Launch configuration App (3) references closed project ChatClient
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 16:50:50.328
+!MESSAGE Launch configuration App (3) references closed project ChatClient
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 16:50:50.342
+!MESSAGE Launch configuration App (1) references closed project ChatClient
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 16:50:50.347
+!MESSAGE Launch configuration App (1) references closed project ChatClient
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 16:50:50.376
+!MESSAGE Launch configuration App (1) references closed project ChatClient
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 16:52:15.840
+!MESSAGE Launch configuration App references closed project ChatServer
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 16:52:15.846
+!MESSAGE Launch configuration App references closed project ChatServer
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 16:52:15.867
+!MESSAGE Launch configuration App references closed project ChatServer
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 16:52:15.872
+!MESSAGE Launch configuration App (2) references closed project ChatServer
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 16:52:15.876
+!MESSAGE Launch configuration App (2) references closed project ChatServer
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 16:52:15.896
+!MESSAGE Launch configuration App (2) references closed project ChatServer
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 18:26:37.718
+!MESSAGE Launch configuration App (3) references closed project ChatClient
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 18:26:37.732
+!MESSAGE Launch configuration App (3) references closed project ChatClient
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 18:26:37.775
+!MESSAGE Launch configuration App (3) references closed project ChatClient
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 18:26:37.787
+!MESSAGE Launch configuration App (1) references closed project ChatClient
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 18:26:37.791
+!MESSAGE Launch configuration App (1) references closed project ChatClient
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 18:26:37.824
+!MESSAGE Launch configuration App (1) references closed project ChatClient
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 18:46:23.911
+!MESSAGE Launch configuration App (3) references closed project ChatClient
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 18:46:23.938
+!MESSAGE Launch configuration App (3) references closed project ChatClient
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 18:46:23.963
+!MESSAGE Launch configuration App (3) references closed project ChatClient
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 18:46:23.968
+!MESSAGE Launch configuration App (1) references closed project ChatClient
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 18:46:23.976
+!MESSAGE Launch configuration App (1) references closed project ChatClient
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 18:46:24.003
+!MESSAGE Launch configuration App (1) references closed project ChatClient
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 19:34:40.878
+!MESSAGE failed to load maven project for org.eclipse.ui.part.FileEditorInput(/ChatClient/pom.xml)
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 19:34:41.091
+!MESSAGE Could not read pom.xml
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 19:34:44.630
+!MESSAGE Could not read pom.xml
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 19:35:33.368
+!MESSAGE Failed to read Maven project: 1 problem was encountered while building the effective model
+[FATAL] Non-parseable POM /home/hayyuhanifah/Documents/protoExercise/ChatClient/pom.xml: end tag name </build> must match start tag name <pluginManagement> from line 95 (position: TEXT seen ...</plugins>\n\t</build>... @162:10)  @ line 162, column 10
+ for project  at /home/hayyuhanifah/Documents/protoExercise/ChatClient/pom.xml
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 19:35:33.820
+!MESSAGE Could not read pom.xml
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 19:36:38.838
+!MESSAGE Failed to read Maven project: 1 problem was encountered while building the effective model
+[FATAL] Non-parseable POM /home/hayyuhanifah/Documents/protoExercise/ChatClient/pom.xml: end tag name </build> must match start tag name <pluginManagement> from line 95 (position: TEXT seen ...</plugins>\n\t</build>... @162:10)  @ line 162, column 10
+ for project  at /home/hayyuhanifah/Documents/protoExercise/ChatClient/pom.xml
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 19:36:39.323
+!MESSAGE Could not read pom.xml
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 19:38:02.098
+!MESSAGE Failed to read Maven project: 1 problem was encountered while building the effective model
+[FATAL] Non-parseable POM /home/hayyuhanifah/Documents/protoExercise/ChatClient/pom.xml: end tag name </build> must match start tag name <pluginManagement> from line 87 (position: TEXT seen ...</plugins>\n\t</build>... @154:10)  @ line 154, column 10
+ for project  at /home/hayyuhanifah/Documents/protoExercise/ChatClient/pom.xml
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-28 19:38:02.497
+!MESSAGE Could not read pom.xml

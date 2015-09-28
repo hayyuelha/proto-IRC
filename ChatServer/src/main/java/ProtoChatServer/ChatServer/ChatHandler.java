@@ -22,7 +22,7 @@ public class ChatHandler implements  main.java.io.grpc.chatservice.ChatServiceGr
 		}
 		user.setClientKey(u.getClientKey());
 		App.users.addUser(user);
-		System.out.println("Total users: " + App.users.getListUsers().size());
+//		System.out.println("Total users: " + App.users.getListUsers().size());
 		RetVal r = RetVal.newBuilder().setRetval("Online as " + user.getNick()).build();
 		return r;
 	}
@@ -43,8 +43,8 @@ public class ChatHandler implements  main.java.io.grpc.chatservice.ChatServiceGr
 		c.addMember(u);
 		u.addChannel(c);
 		
-		System.out.println("Total channels: " + App.channels.getListChannels().size()
-				+ "with nMember of currently added channel is " + c.getUsersCount());
+//		System.out.println("Total channels: " + App.channels.getListChannels().size()
+//				+ "with nMember of currently added channel is " + c.getUsersCount());
 		RetVal r = RetVal.newBuilder().setRetval("Join channel " + c.getName()).build();
 		return r;
 	}
@@ -89,7 +89,6 @@ public class ChatHandler implements  main.java.io.grpc.chatservice.ChatServiceGr
 	}
 
 	public void exit(User request, StreamObserver<RetVal> responseObserver) {
-		System.out.println("Entering exit...");
 		responseObserver.onValue(_exit(request));
 		responseObserver.onCompleted();		
 	}
@@ -105,7 +104,6 @@ public class ChatHandler implements  main.java.io.grpc.chatservice.ChatServiceGr
 	}
 
 	public void send(Message request, StreamObserver<RetVal> responseObserver) {
-		System.out.println("Sending...");
 		responseObserver.onValue(_send(request));
 		responseObserver.onCompleted();	
 	}
@@ -126,7 +124,6 @@ public class ChatHandler implements  main.java.io.grpc.chatservice.ChatServiceGr
 
 	public void getMessages(User request,
 			StreamObserver<Message> responseObserver) {
-//		System.out.println("Receiving...");
 		UserServer user = App.users.getUser(request.getClientKey());
 		List<Message> m = user.getMessage();
 		for (Message msg : m) {
