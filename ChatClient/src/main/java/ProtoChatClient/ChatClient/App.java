@@ -7,14 +7,13 @@ import java.util.Scanner;
 
 import main.java.io.grpc.chatservice.*;
 import main.java.io.grpc.chatservice.ChatServiceGrpc.ChatService;
-import main.java.io.grpc.chatservice.ChatServiceGrpc.ChatServiceBlockingClient;
 import main.java.io.grpc.chatservice.ChatServiceGrpc.ChatServiceBlockingStub;
 import io.grpc.ChannelImpl;
 import io.grpc.netty.NegotiationType;
 import io.grpc.netty.NettyChannelBuilder;
 
 /**
- * Hello world!
+ * IRC-CLient uses gRPC
  *
  */
 public class App 
@@ -25,7 +24,6 @@ public class App
 	private static ChannelImpl client;
 	private static String clientKey;
 	private static ChatServiceBlockingStub blockingStub;
-	private static ChatService asyncStub;
 	public static boolean exit = false;
 	
     public static void main( String[] args )
@@ -34,24 +32,23 @@ public class App
                 .negotiationType(NegotiationType.PLAINTEXT)
                 .build();
         blockingStub = ChatServiceGrpc.newBlockingStub(client);
-        asyncStub = ChatServiceGrpc.newStub(client);
         
         SecureRandom random = new SecureRandom(); //generate key for client
 		clientKey = new BigInteger(35, random).toString(32);
 		System.out.println("Starting client ...");
+		
 		Thread receiver = new Thread(){
 			@Override
 			public void run() {
 				while (!exit) {
-						Iterator<Message> mlist = blockingStub.getMessages(User.newBuilder().setClientKey(clientKey).buildPartial());
-						if (mlist.hasNext()) {
+						Iterator<Message> mlist = blockingStub.getMessages(User.newBuilder().setClientKey(clientKey).build());
+						while (mlist.hasNext()) {
 							Message m = mlist.next();
 							System.out.println("[" + m.getChannel() + "] (" + m.getClientKey() + ") " + m.getMessage());
 						}
 						try {
 							Thread.sleep(3000);
 						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 				}
@@ -71,8 +68,9 @@ public class App
 			sender.join();
 			receiver.join();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			System.exit(0);
 		}
 		
     }
@@ -86,8 +84,6 @@ public class App
 			String[] cmd = cmdString.split("\\s+");
 			User u;
 			ChannelUser cu;
-			User retU;
-			Channel retC;
 			switch (cmd[0]){
 				case "/NICK":	
 					if (cmd.length > 1)

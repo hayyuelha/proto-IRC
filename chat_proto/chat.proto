@@ -15,18 +15,11 @@ message Message {
 message User {
 	string clientKey = 1;
 	string nick = 2;
-	repeated Message messages = 3;
-	repeated Channel channels = 4;
 }
 
 message ChannelUser {
 	string channelName = 1;
 	string clientKey = 2;
-}
-
-message Channel {
-	string channelName = 1;
-	repeated User users = 2;
 }
 
 message RetVal {
